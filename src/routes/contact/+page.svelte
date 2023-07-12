@@ -1,4 +1,5 @@
 <script>
+    import CollectionImage from '$lib/collection.png'
     let name = '';
     let email = '';
     let country = '';
@@ -9,12 +10,14 @@
       console.log('Form submitted');
     }
   </script>
-  
-  <section class="flex flex-col items-center justify-center h-screen">
+        <!-- <div class="text-center">
+          <img src={CollectionImage} alt="collection" class="">
+        </div> -->
+  <section class="flex flex-col items-center justify-center h-screen ">
     <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
       <!-- <h2 class="text-3xl font-semibold mb-6">Contact</h2> -->
-      <p class="mt-4 text-center">If you have any questions, please feel free to send a message, or you can contact me</p>
-      <p class="text-center mb-4">Thank you, Hiroshi</p>
+      <p class="mt-4 text-center">If you have any questions, please feel free to send a message.</p>
+      <p class="text-center mb-4">Thank you, Hiroshi.</p>
   
       <form on:submit={handleSubmit} class="space-y-4">
         <div>
