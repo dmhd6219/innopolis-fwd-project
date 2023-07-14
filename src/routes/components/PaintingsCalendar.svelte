@@ -1,23 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		getMonth,
-		getYear,
-		startOfMonth,
-		getDay,
-		format,
-		isAfter,
-		isBefore,
-		isToday
-	} from 'date-fns';
-	import imgTest from '$lib/9_by_9_paintings/2023-7-15.png';
+	import { getMonth, getYear, startOfMonth, getDay, format, isAfter } from 'date-fns';
+	import imgTest from '$lib/9_by_9_paintings/2023-7-14.jpeg';
 
 	const currentDate = new Date();
 	let selectedMonth = getMonth(currentDate);
 	let selectedYear = getYear(currentDate);
 	const currentYear = getYear(currentDate);
 	const months = Array.from({ length: 12 }, (_, i) => i); // Create an array of month numbers from 0 to 11
-	const years = Array.from({ length: currentYear - 2005}, (_, i) => currentYear - i); // Create an array of years from 2006 to currentYear
+	const years = Array.from({ length: currentYear - 2005 }, (_, i) => currentYear - i); // Create an array of years from 2006 to currentYear
 
 	let calendarDays: { date: number | null; isFuture: boolean; dayOfWeek?: string }[] = [];
 
@@ -84,7 +75,7 @@
 	<h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
 	<div class="p-4 bg-white rounded-lg shadow-m mb-20">
-		<div class="flex items-center justify-between mb-4">
+		<div class="flex items-center justify-between mb-8">
 			<button
 				class="px-2 py-1 text-2xl text-gray-600 rounded-full hover:bg-gray-200"
 				on:click={previousMonth}
@@ -123,13 +114,16 @@
 		<div class="grid grid-cols-7 gap-1">
 			{#each calendarDays as { date, isFuture, dayOfWeek }, j}
 				{#if date === null}
-					<div class="p-2 bg-white ">
+					<div class="bg-white">
 						<div class="w-24 h-24 bg-white" />
 					</div>
+				{:else if isFuture}
+					<div class="bg-white flex items-center justify-center w-24 h-24 bg-white">
+						<p>{date}</p>
+					</div>
 				{:else}
-					<div class="p-2 bg-white ">
+					<div class="bg-white">
 						<img src={imgTest} alt={`Day ${date}`} class="w-24 h-24 mx-auto" />
-						<p class="text-center">{date}</p>
 					</div>
 				{/if}
 			{/each}
