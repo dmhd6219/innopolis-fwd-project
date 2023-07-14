@@ -2,18 +2,18 @@
 	import LogoImage from '$lib/logo.png';
 </script>
 
-<div class="navbar bg-base-200">
+<div class="navbar bg-base-100">
 	<div class="flex-1">
-	  <div class="flex items-center">
-	    <img src={LogoImage} alt="Logo" class="h-8 w-8 m-4">
-	    <a href="/" class="normal-case text-l">Hiroshi Matsumoto</a>
+	  <div class="flex items-center m-8 ml-14">
+	    <img src={LogoImage} alt="Logo" class="h-6 w-6 mr-4">
+	    <a href="/" class="text-xs">HIROSHI MATSUMOTO</a>
 	  </div>
 	</div>
 	<div class="flex-none">
 	  <ul class="menu menu-horizontal px-1">
-		<li><a href="/paintings">Paintings</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/contact">Contact</a></li>
+		<li class="text-xs" ><a href="/paintings">PAINTINGS</a></li>
+		<li class="text-xs" ><a href="/about">ABOUT</a></li>
+		<li class="text-xs"><a href="/contact">CONTACT</a></li>
 	  </ul>
 	</div>
   </div>
