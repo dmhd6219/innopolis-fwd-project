@@ -10,14 +10,14 @@
 		isBefore,
 		isToday
 	} from 'date-fns';
-	import imgTest from '$lib/9_by_9_paintings/2023-7-14.png';
+	import imgTest from '$lib/9_by_9_paintings/2023-7-15.png';
 
 	const currentDate = new Date();
 	let selectedMonth = getMonth(currentDate);
 	let selectedYear = getYear(currentDate);
 	const currentYear = getYear(currentDate);
 	const months = Array.from({ length: 12 }, (_, i) => i); // Create an array of month numbers from 0 to 11
-	const years = Array.from({ length: currentYear - 2005 }, (_, i) => currentYear - i); // Create an array of years from 2006 to currentYear
+	const years = Array.from({ length: currentYear - 2005}, (_, i) => currentYear - i); // Create an array of years from 2006 to currentYear
 
 	let calendarDays: { date: number | null; isFuture: boolean; dayOfWeek?: string }[] = [];
 
@@ -52,13 +52,12 @@
 		if (selectedMonth === 0) {
 			if (selectedYear === years[years.length - 1]) {
 				selectedYear = years[0];
-				selectedMonth = 11;
 			} else {
-				selectedYear = selectedYear - 1;
-				selectedMonth = (selectedMonth - 1 + 12) % 12;
+				selectedYear--;
 			}
+			selectedMonth = 11;
 		} else {
-			selectedMonth = (selectedMonth - 1 + 12) % 12;
+			selectedMonth--;
 		}
 		updateCalendar();
 	}
@@ -68,13 +67,12 @@
 		if (selectedMonth === 11) {
 			if (selectedYear === years[0]) {
 				selectedYear = years[years.length - 1];
-				selectedMonth = 0;
 			} else {
-				selectedYear = selectedYear + 1;
-				selectedMonth = (selectedMonth + 1) % 12;
+				selectedYear++;
 			}
+			selectedMonth = 0;
 		} else {
-			selectedMonth = (selectedMonth + 1) % 12;
+			selectedMonth++;
 		}
 		updateCalendar();
 	}
@@ -85,7 +83,7 @@
 <div class="flex flex-col items-center">
 	<h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
-	<div class="p-4 bg-white rounded-lg shadow-md">
+	<div class="p-4 bg-white rounded-lg shadow-m mb-20">
 		<div class="flex items-center justify-between mb-4">
 			<button
 				class="px-2 py-1 text-2xl text-gray-600 rounded-full hover:bg-gray-200"
@@ -122,20 +120,17 @@
 				&gt;
 			</button>
 		</div>
-		<div class="grid grid-cols-7 gap-4">
+		<div class="grid grid-cols-7 gap-1">
 			{#each calendarDays as { date, isFuture, dayOfWeek }, j}
-				{#if date !== null}
-					<div class="p-2 bg-white rounded-lg shadow-md">
-						{#if isFuture}
-							<div class="w-16 h-16 bg-white" />
-							<p class="text-center">{date}</p>
-						{:else}
-							<img src={imgTest} alt={`Day ${date}`} class="w-16 h-16 mx-auto rounded-lg" />
-							<p class="text-center">{date}</p>
-						{/if}
+				{#if date === null}
+					<div class="p-2 bg-white ">
+						<div class="w-24 h-24 bg-white" />
 					</div>
 				{:else}
-					<div class="p-2 bg-white rounded-lg shadow-md" />
+					<div class="p-2 bg-white ">
+						<img src={imgTest} alt={`Day ${date}`} class="w-24 h-24 mx-auto" />
+						<p class="text-center">{date}</p>
+					</div>
 				{/if}
 			{/each}
 		</div>
