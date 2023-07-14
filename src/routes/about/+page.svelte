@@ -7,7 +7,7 @@
 <main>
 	<div class="flex flex-col justify-center mb-20 mt-10 ml-60 mr-60">
 		<img src={StudioPhoto1} alt="collection" class="" />
-		<p class="flex text-xs mb-8 justify-end pt-5">Studio, 2018.</p>
+		<h2 class="flex text-xs font-semibold mb-8 justify-end pt-5">Studio, 2018.</h2>
 	</div>
 	<div class="grid grid-cols-2 gap-4 bg-base-200 p-20">
 		<div class="pl-20"><img src={PainterPhoto} alt="painter" /></div>
