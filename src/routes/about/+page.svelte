@@ -34,7 +34,7 @@
 	<div class="p-20 pb-0 text-bold">
 		<h2 class="text-l font-semibold mb-2">My Shop</h2>
 		<p class="text-s mb-8">
-			To purchase original oil paintings online please visit my <strong>Etsy shop.</strong>
+			To purchase original oil paintings online please visit my <strong><a href="https://www.etsy.com/shop/hiroshimatsumoto" target="_blank">Etsy shop.</a></strong>
 		</p>
 	</div>
 	<div class="p-20 pt-4"><img src={EtsyShop} alt="etsy shop" class="" /></div>

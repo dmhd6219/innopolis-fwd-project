@@ -10,7 +10,7 @@
 		isBefore,
 		isToday
 	} from 'date-fns';
-	import imgTest from '$lib/9_by_9_paintings/2023-7-1.png';
+	import imgTest from '$lib/9_by_9_paintings/2023-7-14.png';
 
 	const currentDate = new Date();
 	let selectedMonth = getMonth(currentDate);
@@ -47,13 +47,36 @@
 		calendarDays = generateCalendarDays(selectedYear, selectedMonth);
 	}
 
-	// Update the selected year when transitioning through January
-	function updateYearOnJanuaryChange() {
+	// Update the selected month and year when transitioning through the previous month
+	function previousMonth() {
 		if (selectedMonth === 0) {
-			selectedYear--;
-		} else if (selectedMonth === 11) {
-			selectedYear++;
+			if (selectedYear === years[years.length - 1]) {
+				selectedYear = years[0];
+				selectedMonth = 11;
+			} else {
+				selectedYear = selectedYear - 1;
+				selectedMonth = (selectedMonth - 1 + 12) % 12;
+			}
+		} else {
+			selectedMonth = (selectedMonth - 1 + 12) % 12;
 		}
+		updateCalendar();
+	}
+
+	// Update the selected month and year when transitioning through the next month
+	function nextMonth() {
+		if (selectedMonth === 11) {
+			if (selectedYear === years[0]) {
+				selectedYear = years[years.length - 1];
+				selectedMonth = 0;
+			} else {
+				selectedYear = selectedYear + 1;
+				selectedMonth = (selectedMonth + 1) % 12;
+			}
+		} else {
+			selectedMonth = (selectedMonth + 1) % 12;
+		}
+		updateCalendar();
 	}
 
 	onMount(updateCalendar);
@@ -62,151 +85,59 @@
 <div class="flex flex-col items-center">
 	<h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
-	<div class="calendar-container">
-		<div class="grid-container">
-			<div class="month-year-selector">
-				<button
-					class="arrow-button"
-					on:click={() => {
-						selectedMonth = (selectedMonth - 1 + 12) % 12;
-						updateYearOnJanuaryChange();
-						updateCalendar();
-					}}
-				>
-					&lt;
-				</button>
-				<div class="month-selector">
-					<select
-						class="select select-bordered"
-						bind:value={selectedMonth}
-						on:change={() => {
-							updateYearOnJanuaryChange();
-							updateCalendar();
-						}}
-					>
-						{#each months as month}
-							<option value={month}>{format(new Date(selectedYear, month, 1), 'MMMM')}</option>
-						{/each}
-					</select>
-				</div>
-				<div class="year-selector">
-					<select
-						class="select select-bordered"
-						bind:value={selectedYear}
-						on:change={() => {
-							updateCalendar();
-						}}
-					>
-						{#each years as year}
-							<option value={year}>{year}</option>
-						{/each}
-					</select>
-				</div>
-				<button
-					class="arrow-button"
-					on:click={() => {
-						selectedMonth = (selectedMonth + 1) % 12;
-						updateYearOnJanuaryChange();
-						updateCalendar();
-					}}
-				>
-					&gt;
-				</button>
-			</div>
-			<div class="grid">
-				{#each calendarDays as { date, isFuture, dayOfWeek }, j}
-					{#if date !== null}
-						<div class="grid-item">
-							{#if isFuture}
-								<div class="white-square" />
-								<p class="day-number">{date}</p>
-							{:else}
-								<img src={imgTest} alt={`Day ${date}`} />
-								<p class="day-number">{date}</p>
-							{/if}
-						</div>
-					{:else}
-						<div class="empty-item" />
-					{/if}
+	<div class="p-4 bg-white rounded-lg shadow-md">
+		<div class="flex items-center justify-between mb-4">
+			<button
+				class="px-2 py-1 text-2xl text-gray-600 rounded-full hover:bg-gray-200"
+				on:click={previousMonth}
+			>
+				&lt;
+			</button>
+			<select
+				class="w-32 p-1 text-gray-600 rounded-lg"
+				bind:value={selectedMonth}
+				on:change={() => {
+					updateCalendar();
+				}}
+			>
+				{#each months as month}
+					<option value={month}>{format(new Date(selectedYear, month, 1), 'MMMM')}</option>
 				{/each}
-			</div>
+			</select>
+			<select
+				class="w-24 p-1 text-gray-600 rounded-lg"
+				bind:value={selectedYear}
+				on:change={() => {
+					updateCalendar();
+				}}
+			>
+				{#each years as year}
+					<option value={year}>{year}</option>
+				{/each}
+			</select>
+			<button
+				class="px-2 py-1 text-2xl text-gray-600 rounded-full hover:bg-gray-200"
+				on:click={nextMonth}
+			>
+				&gt;
+			</button>
+		</div>
+		<div class="grid grid-cols-7 gap-4">
+			{#each calendarDays as { date, isFuture, dayOfWeek }, j}
+				{#if date !== null}
+					<div class="p-2 bg-white rounded-lg shadow-md">
+						{#if isFuture}
+							<div class="w-16 h-16 bg-white" />
+							<p class="text-center">{date}</p>
+						{:else}
+							<img src={imgTest} alt={`Day ${date}`} class="w-16 h-16 mx-auto rounded-lg" />
+							<p class="text-center">{date}</p>
+						{/if}
+					</div>
+				{:else}
+					<div class="p-2 bg-white rounded-lg shadow-md" />
+				{/if}
+			{/each}
 		</div>
 	</div>
 </div>
-
-<style>
-	.calendar-container {
-		height: 80vh; /* Set the desired height for the calendar container */
-		overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
-	}
-
-	.grid-container {
-		display: grid;
-		gap: 16px;
-	}
-
-	.month-year-selector {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.month-selector {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.arrow-button {
-		border: none;
-		background-color: transparent;
-		font-size: 1.5rem;
-		cursor: pointer;
-	}
-
-	.year-selector {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(7, minmax(0, 1fr));
-		gap: 8px;
-	}
-
-	.grid-item {
-		position: relative;
-		overflow: hidden;
-		padding-bottom: 0;
-		background-color: #ffffff;
-	}
-
-	.grid-item img {
-		display: block;
-		width: 4rem;
-		height: 4rem;
-		object-fit: cover;
-	}
-
-	.empty-item {
-		padding-bottom: 100%;
-		background-color: #ffffff;
-	}
-
-	.day-number {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		/* transform: translate(-50%, -50%); */
-		font-size: 0.875rem;
-		font-weight: bold;
-	}
-
-	.white-square {
-		width: 4rem;
-		height: 4rem;
-		background-color: #ffffff;
-	}
-</style>
