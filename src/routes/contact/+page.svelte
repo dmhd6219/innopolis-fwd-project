@@ -49,7 +49,7 @@
         </div>
   
         <div class="text-center">
-          <button type="submit" class="btn px-4 py-2">Submit</button>
+          <button type="submit" class="btn px-4 py-2">Send</button>
         </div>
       </form>
     </div>
