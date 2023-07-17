@@ -1,5 +1,5 @@
 <script>
-	import PaintingsCalendar from '../components/PaintingsCalendar.svelte';
+	import PaintingsCalendar from '$lib/components/PaintingsCalendar.svelte';
 </script>
 
 
