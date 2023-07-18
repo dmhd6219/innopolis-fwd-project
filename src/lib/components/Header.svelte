@@ -4,12 +4,10 @@
 
 <div class="navbar bg-base-200">
 	<div class="flex-1">
-		<div class="flex items-center m-8 ml-14">
-			<a href="/">
-				<img src={LogoImage} alt="Logo" class="h-6 w-6 mr-4" />
-				<p class="text-xs">HIROSHI MATSUMOTO</p></a
-			>
-		</div>
+		<a href="/" class="flex items-center m-8 ml-14">
+			<img src={LogoImage} alt="Logo" class="h-6 w-6 mr-4" />
+			<p class="text-xs">HIROSHI MATSUMOTO</p>
+		</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
