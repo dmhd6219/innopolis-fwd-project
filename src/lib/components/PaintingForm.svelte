@@ -98,12 +98,10 @@
 					/>
 				</label>
 			</div>
-            
+
 			<div class="text-center">
 				<button type="submit" class="btn px-4 py-2">Submit</button>
 			</div>
-
-            
 		</form>
 	</div>
 </section>

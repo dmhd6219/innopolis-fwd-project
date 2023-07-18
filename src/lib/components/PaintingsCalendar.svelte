@@ -74,7 +74,7 @@
 <div class="flex flex-col items-center">
 	<h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
-	<div class="p-4 bg-white rounded-lg shadow-m mb-20">
+	<div class="bg-white rounded-lg shadow-m mb-20">
 		<div class="flex items-center justify-between mb-8">
 			<button
 				class="px-2 py-1 text-2xl text-gray-600 rounded-full hover:bg-gray-200"
@@ -111,20 +111,20 @@
 				&gt;
 			</button>
 		</div>
-		<div class="grid grid-cols-7 gap-1">
+		<div class="grid grid-cols-7 gap-0.5">
 			{#each calendarDays as { date, isFuture, dayOfWeek }, j}
 				{#if date === null}
 					<div class="bg-white">
-						<div class="w-24 h-24 bg-white" />
+						<div class="w-10 h-10 bg-white" />
 					</div>
 				{:else if isFuture}
-					<div class="bg-white flex items-center justify-center w-24 h-24 bg-white">
+					<div class="bg-white flex items-center justify-center w-10 h-10 md:w-24 md:h-24">
 						<p>{date}</p>
 					</div>
 				{:else}
-					<a href="./painting"><div class="bg-white">
-						<img src={imgTest} alt={`Day ${date}`} class="w-24 h-24 mx-auto" />
-					</div></a>
+					<a href="./painting" class="bg-white">
+						<img src={imgTest} alt={`Day ${date}`} class="w-10 h-10 md:w-24 md:h-24 mx-auto" />
+					</a>
 				{/if}
 			{/each}
 		</div>
