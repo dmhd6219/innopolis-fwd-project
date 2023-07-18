@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import LogoImage from '$lib/logo.png';
 </script>
 
@@ -16,4 +16,4 @@
 			<li class="text-xs"><a href="/contact">CONTACT</a></li>
 		</ul>
 	</div>
-</div>
+</div> -->
