@@ -122,7 +122,7 @@
 						<p>{date}</p>
 					</div>
 				{:else}
-					<a href="./item"><div class="bg-white">
+					<a href="./painting"><div class="bg-white">
 						<img src={imgTest} alt={`Day ${date}`} class="w-24 h-24 mx-auto" />
 					</div></a>
 				{/if}
