@@ -2,13 +2,15 @@
 	interface Painting {
 		date: Date;
 		photoFile: File | null;
-		isPrivate: boolean;
+		title : string | null,
+		desc : string | null
 	}
 
 	let painting: Painting = {
 		date: new Date(),
 		photoFile: null,
-		isPrivate: false
+		title : null,
+		desc : null
 	};
 
 	function addPicture() {
@@ -22,6 +24,17 @@
 		<p class="font-bold mt-4 mb-8 text-center">Adding new picture</p>
 
 		<form on:submit={addPicture} class="space-y-4">
+			<div>
+				<label class="block text-sm font-medium">
+					Title:
+					<input
+							type="text"
+							bind:value={painting.title}
+							class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
+					/>
+				</label>
+			</div>
+
 			<div>
 				<label class="block text-sm font-medium">
 					Date:
@@ -46,13 +59,13 @@
 				</label>
 			</div>
 
-			<div class="">
-				<label class="block text-sm font-medium flex">
-					Private:
+			<div>
+				<label class="block text-sm font-medium">
+					Description:
 					<input
-						type="checkbox"
-						bind:checked={painting.isPrivate}
-						class="checkbox h-5 w-5 ml-2 border border-gray-300"
+							type="text"
+							bind:value={painting.desc}
+							class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
 					/>
 				</label>
 			</div>
