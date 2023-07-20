@@ -2,18 +2,12 @@
 	interface Painting {
 		date: Date;
 		photoFile: File | null;
-		collection: string;
-		materials: string;
-		size: string;
 		isPrivate: boolean;
 	}
 
 	let painting: Painting = {
 		date: new Date(),
 		photoFile: null,
-		collection: '',
-		materials: '',
-		size: '',
 		isPrivate: false
 	};
 
@@ -46,42 +40,6 @@
 					<input
 						type="file"
 						bind:value={painting.photoFile}
-						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-						required
-					/>
-				</label>
-			</div>
-
-			<div>
-				<label class="block text-sm font-medium">
-					Collection:
-					<input
-						type="text"
-						bind:value={painting.collection}
-						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-						required
-					/>
-				</label>
-			</div>
-
-			<div>
-				<label class="block text-sm font-medium">
-					Materials:
-					<input
-						type="text"
-						bind:value={painting.materials}
-						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-						required
-					/>
-				</label>
-			</div>
-
-			<div>
-				<label class="block text-sm font-medium">
-					Size:
-					<input
-						type="text"
-						bind:value={painting.size}
 						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
 						required
 					/>

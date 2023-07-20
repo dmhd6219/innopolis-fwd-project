@@ -5,14 +5,11 @@
 	let painting = {
 		date: new Date(2023, 7, 14),
 		image: PaintingPhoto,
-		collection: '9 by 9 paintings',
-		materials: 'Oil on canvas',
-		size: '9 cm by 9 cm',
-		isPrivate: true
+		isPrivate: false,
 	};
 </script>
 
-<div class="flex flex-col md:flex-row">
+<section class="flex flex-col md:flex-row">
 	<div class="md:w-1/2 bg-base-200 flex flex-col items-center justify-center pb-24 pt-24">
 		<img src={painting.image} alt="painting" class="w-1/2 mx-auto mb-4 shadow-2xl" />
 		<p class="text-xs text-gray-500">I appreciate your support. Thanks, Hiroshi.</p>
@@ -23,9 +20,9 @@
 			{format(painting.date, 'MMMM dd, yyyy')}
 		</h2>
 		<p class="text-sm text-gray-500 mb-4">
-			Collection: {painting.collection}<br />
-			Materials: {painting.materials}<br />
-			Size: {painting.size}
+			Collection: 9 by 9 paintings<br />
+			Materials: Oil on canvas<br />
+			Size: 9 cm by 9 cm
 		</p>
 		<hr class="my-4" />
 		<a href="https://www.etsy.com/shop/hiroshimatsumoto" target="_blank">
@@ -33,8 +30,8 @@
 		</a>
 		<!-- FEATURE: For admin -->
 		<!-- <div class="flex justify-between">
-      <button class="bg-sky-400 text-white py-2 px-4 mr-2 w-1/2">Edit</button>
-      <button class="bg-red-400 text-white py-2 px-4 ml-2 w-1/2">Delete</button>
-    </div> -->
+      	<button class="bg-sky-400 text-white py-2 px-4 mr-2 w-1/2">Edit</button>
+      	<button class="bg-red-400 text-white py-2 px-4 ml-2 w-1/2">Delete</button>
+    		</div> -->
 	</div>
-</div>
+</section>

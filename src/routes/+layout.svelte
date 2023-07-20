@@ -6,7 +6,9 @@
 
 <body>
 	<Header />
-	<slot />
+	<main>
+		<slot />
+	</main>
 	<Footer />
 </body>
 
@@ -17,4 +19,6 @@
 		font-family: 'Karla', sans-serif;
 		/* font-family: 'Playfair Display', serif; */
 	}
+
+	/* не знаю как подключить шрифт если убрать body */
 </style>

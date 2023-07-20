@@ -71,7 +71,7 @@
 	onMount(updateCalendar);
 </script>
 
-<div class="flex flex-col items-center">
+<section class="flex flex-col items-center">
 	<h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
 	<div class="bg-white rounded-lg shadow-m mb-20">
@@ -129,4 +129,4 @@
 			{/each}
 		</div>
 	</div>
-</div>
+</section>

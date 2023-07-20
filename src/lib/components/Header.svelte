@@ -1,5 +1,5 @@
 <script>
-	import LogoImage from '$lib/logo.png';
+	import LogoImage from '$lib/images/logo.png';
 </script>
 
 <header class="navbar bg-base-200 flex flex-col md:flex-row">
