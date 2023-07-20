@@ -62,11 +62,11 @@
 			<div>
 				<label class="block text-sm font-medium">
 					Description:
-					<input
-							type="text"
+					<textarea
 							bind:value={painting.desc}
-							class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-					/>
+							class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
+							rows="2"
+							required></textarea>
 				</label>
 			</div>
 
