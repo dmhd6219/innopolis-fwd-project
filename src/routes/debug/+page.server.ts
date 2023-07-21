@@ -7,7 +7,10 @@ export const actions = {
         const token = (cookies.get('token') as string).toString()
         console.log(token)
 
-        const response = await axios.post(`${BASE_URL}/debug-token?token=${token}&message=a`)
+        const formData = new FormData();
+        formData.append("username", "Chris");
+
+        const response = await axios.post(`${BASE_URL}/debug-image-body`, formData)
         console.log(response.data)
     },
 
