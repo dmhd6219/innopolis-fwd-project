@@ -14,6 +14,7 @@
 			<li class="text-xs"><a href="/paintings">PAINTINGS</a></li>
 			<li class="text-xs"><a href="/about">ABOUT</a></li>
 			<li class="text-xs"><a href="/contact">CONTACT</a></li>
+			<li class="text-xs"><a href="/signin">ACCOUNT</a></li>
 		</ul>
 	</nav>
 </header>
