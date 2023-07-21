@@ -14,6 +14,7 @@
 
     let calendarDays: {
         date: number | null;
+        formattedDate?: string;
         isFuture: boolean;
         dayOfWeek?: string;
         imageExists?: string;
@@ -55,6 +56,7 @@
 
             calendarDays.push({
                 date: i,
+                formattedDate : formattedDate,
                 isFuture: isFuture,
                 dayOfWeek: dayOfWeek,
                 imageExists: imageExists,
@@ -144,7 +146,7 @@
             </button>
         </div>
         <div class="grid grid-cols-7 gap-0.5">
-            {#each calendarDays as {date, isFuture, dayOfWeek, imageExists, imageUrl}, j}
+            {#each calendarDays as {date, formattedDate, isFuture, dayOfWeek, imageExists, imageUrl}, j}
                 {#if date === null || !imageExists}
                     <div class="bg-white">
                         <div class="w-10 h-10 bg-white"/>
@@ -154,7 +156,7 @@
                         <p>{date}</p>
                     </div>
                 {:else}
-                    <a href="./painting" class="bg-white">
+                    <a href="./painting/{formattedDate}" class="bg-white">
                         <img src={imageUrl} alt={`Day ${date}`} class="w-10 h-10 md:w-24 md:h-24 mx-auto"/>
                     </a>
                 {/if}
