@@ -4,9 +4,7 @@ import type {Actions} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
 
 export const actions = {
-    default: async ({cookies, request}) => {
-        console.log('in register action')
-        console.log((await axios.post(`${BASE_URL}/debug?message=in_action!!`)).data)
+    default: async ({request}) => {
         const data = await request.formData()
         const email = data.get('email')
         const password = data.get('password')
@@ -14,15 +12,12 @@ export const actions = {
 
         if (password === passwordAgain) {
             const response = await axios.post(`${BASE_URL}/register?email=${email}&password=${password}`);
-            console.log(response.status)
-            console.log(response.data)
             if (response.status === 200) {
-                cookies.set('token', response.data, {maxAge: 60 * 24 * 7})
-                return {success: true}
+                throw redirect(303, '/login');
             }
         }
 
-        throw redirect(303, '/login');
+
     },
 
 

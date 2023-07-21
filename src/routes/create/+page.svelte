@@ -13,17 +13,13 @@
 		desc : null
 	};
 
-	function addPicture() {
-		// TODO: Handle form submission here
-		console.log('Form submitted');
-	}
 </script>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">
 	<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
 		<p class="font-bold mt-4 mb-8 text-center">Adding new picture</p>
 
-		<form on:submit={addPicture} class="space-y-4">
+		<form method="post" class="space-y-4" enctype="multipart/form-data">
 			<div>
 				<label class="block text-sm font-medium">
 					Title:
@@ -31,6 +27,7 @@
 							type="text"
 							bind:value={painting.title}
 							class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
+							name="title"
 					/>
 				</label>
 			</div>
@@ -43,6 +40,7 @@
 						bind:value={painting.date}
 						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
 						required
+						name="date"
 					/>
 				</label>
 			</div>
@@ -52,9 +50,11 @@
 					Photo File:
 					<input
 						type="file"
+						accept="image/png, image/jpeg"
 						bind:value={painting.photoFile}
 						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
 						required
+						name="file"
 					/>
 				</label>
 			</div>
@@ -66,7 +66,9 @@
 							bind:value={painting.desc}
 							class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
 							rows="2"
-							required></textarea>
+							required
+							name="desc"
+					></textarea>
 				</label>
 			</div>
 
