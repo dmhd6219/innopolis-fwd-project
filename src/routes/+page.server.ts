@@ -16,9 +16,9 @@ export const load = (
         const date = getRandomDateInBetween('2006-03-01', (new Date()).toString())
 
         const formattedDate = format(date, 'yyyy-MM-dd');
-        const response = await axios.get(`${BASE_URL}/items/${formattedDate}/exists`)
+        const response = await fetch(`${BASE_URL}/items/${formattedDate}/exists`)
 
-        if (response.data){
+        if (await response.json()){
             return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate: formattedDate}
         }
 

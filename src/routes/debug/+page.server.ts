@@ -1,5 +1,4 @@
 import type {Actions} from "@sveltejs/kit";
-import axios from "axios";
 import {BASE_URL} from "$env/static/private";
 
 export const actions = {
@@ -10,8 +9,11 @@ export const actions = {
         const formData = new FormData();
         formData.append("username", "Chris");
 
-        const response = await axios.post(`${BASE_URL}/debug-image-body`, formData)
-        console.log(response.data)
+        const response = await fetch(`${BASE_URL}/debug-image-body`, {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        })
+        console.log(response.json())
     },
 
 
