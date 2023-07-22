@@ -30,9 +30,11 @@ export const actions = {
             if (response.status === 200) {
                 throw redirect(303, '/login');
             }
+
+            return {error : `Error on server side, ${response.status}`}
         }
 
-
+        return {error : `Passwords are not same`}
     },
 
 

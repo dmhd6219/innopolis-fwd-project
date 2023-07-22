@@ -1,6 +1,7 @@
 import type {PageServerLoad} from "./$types";
 import {BASE_URL} from "$env/static/private";
 import {format} from 'date-fns';
+import {getImageUrlFromDate} from "$lib/getImageUrl";
 
 // getRandomDateInBetween('2021-01-01', '2021-01-30')
 function getRandomDateInBetween(start: string, end: string) {
@@ -32,7 +33,7 @@ export const load = (
             }
         }
 
-        return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate: formattedDate}
+        return {url: getImageUrlFromDate(new Date(formattedDate)), formattedDate: formattedDate}
 
 
     }

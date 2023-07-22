@@ -19,7 +19,7 @@ export const actions = {
     default: async ({params, cookies}) => {
         const token = cookies.get('token');
         if (!token) {
-            return {success: false}
+            return {error : `You are not authorized`}
         }
 
         await fetch(`${BASE_URL}/items/${params.painting_date}/delete?token=${token}`, {

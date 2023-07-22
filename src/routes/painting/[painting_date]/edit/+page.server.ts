@@ -8,7 +8,7 @@ export const actions = {
 
         const token = cookies.get('token');
         if (!token) {
-            return {success: false}
+            return {error : `You are not authorized`}
         }
 
         const data = await request.formData()
@@ -22,7 +22,7 @@ export const actions = {
             throw redirect(303, `/painting/${params.painting_date}`);
         }
 
-        return {success: false}
+        return {error : `Error on server side, ${response.status}`}
     },
 
 

@@ -7,6 +7,9 @@
     <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
         <p class="font-bold mt-4 mb-8 text-center">Delete</p>
 
+        {#if data}
+            <p style="color:red;">{data.error}</p>
+        {/if}
         <form class="space-y-4" method="POST">
             <p>Do you really want to delete {data.formattedDate}?</p>
             <div class="text-center">

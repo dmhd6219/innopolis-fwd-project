@@ -19,6 +19,9 @@ export const actions = {
         if (cookies.get('token')) {
             cookies.delete('token')
         }
+        else {
+            return {error : `You are not authorized`}
+        }
 
         return {success: true}
     },

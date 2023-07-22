@@ -10,7 +10,7 @@ export const load = (
             console.log('you have cookies')
             throw redirect(303, '/');
         }
-        return {session: false}
+        return {error : `You are not authorized`}
     }
 ) satisfies PageServerLoad;
 
@@ -31,7 +31,7 @@ export const actions = {
             return {success: true}
         }
 
-        return {success: false}
+        return {error : `Error on server side, ${response.status}`}
     },
 
 

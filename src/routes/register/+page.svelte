@@ -9,13 +9,15 @@
 
     let formData: RegisterForm = {email: "", password: "", repeatedPassword: ""};
 
-
+    export let data;
 </script>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">
     <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
         <p class="font-bold mt-4 mb-8 text-center">Register</p>
-
+        {#if data}
+            <p style="color:red;">{data.error}</p>
+        {/if}
         <form class="space-y-4" method="POST">
             <div>
                 <label class="block text-sm font-medium">
