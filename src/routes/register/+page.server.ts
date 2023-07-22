@@ -3,6 +3,20 @@ import axios from "axios";
 import type {Actions} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
 
+import type {PageServerLoad} from "./$types";
+
+export const load = (
+    ({cookies}) => {
+        if (cookies.get('token')) {
+            console.log('you have cookies')
+            throw redirect(303, '/');
+        }
+        return {session: false}
+    }
+) satisfies PageServerLoad;
+
+
+
 export const actions = {
     default: async ({request}) => {
         const data = await request.formData()

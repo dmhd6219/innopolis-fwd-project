@@ -2,6 +2,21 @@ import {BASE_URL} from '$env/static/private';
 import axios from "axios";
 import type {Actions} from "@sveltejs/kit";
 
+import type {PageServerLoad} from "./$types";
+import {redirect} from "@sveltejs/kit";
+
+export const load = (
+    ({cookies}) => {
+        if (cookies.get('token')) {
+            console.log('you have cookies')
+            throw redirect(303, '/');
+        }
+        return {session: false}
+    }
+) satisfies PageServerLoad;
+
+
+
 export const actions = {
     default: async ({cookies, request}) => {
         const data = await request.formData()
