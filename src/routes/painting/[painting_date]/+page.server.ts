@@ -6,9 +6,9 @@ import {BASE_URL} from "$env/static/private";
 export const load = (async ({params, cookies}) => {
     console.log(params.painting_date)
 
-    const response = await axios.get(`${BASE_URL}/items/${params.painting_date}/`)
+    const response = await axios.get(`${BASE_URL}/items/${params.painting_date}/exists`)
 
-    if (response.data === null) {
+    if (response.data === "false") {
         throw redirect(307, '/paintings');
     }
 
