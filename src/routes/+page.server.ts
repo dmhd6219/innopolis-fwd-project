@@ -13,18 +13,19 @@ function getRandomDateInBetween(start: string, end: string) {
 
 export const load = (
     async () => {
-        // const date = getRandomDateInBetween('2006-03-01', (new Date()).toString())
-        // const result = false;
-        //
-        // while (!result) {
-        //     const formattedDate = format(date, 'yyyy-MM-dd');
-        //
-        //     const response = await axios.get(`${BASE_URL}/items/${formattedDate}/exists`)
-        //
-        //     if (response.data === true) {
-        //         return {url: `${BASE_URL}/items/${formattedDate}/photo`}
-        //     }
-        // }
+        const date = getRandomDateInBetween('2006-03-01', (new Date()).toString())
+        let result = false;
+
+        while (!result) {
+            const formattedDate = format(date, 'yyyy-MM-dd');
+
+            const response = await axios.get(`${BASE_URL}/items/${formattedDate}/exists`)
+
+            if (response.data === true) {
+                result = true;
+                return {url: `${BASE_URL}/items/${formattedDate}/photo`}
+            }
+        }
 
 
     }
