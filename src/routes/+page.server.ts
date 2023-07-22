@@ -23,7 +23,7 @@ export const load = (
 
             if (response.data === true) {
                 result = true;
-                return {url: `${BASE_URL}/items/${formattedDate}/photo`}
+                return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate : formattedDate}
             }
         }
 
