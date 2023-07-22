@@ -1,7 +1,6 @@
 <script lang="ts">
     import {onMount} from 'svelte';
     import {getMonth, getYear, startOfMonth, getDay, format, isAfter} from 'date-fns';
-    import axios from "axios";
 
     export let data;
 
@@ -46,8 +45,8 @@
 
 
             let imageExists = false;
-            const response = await axios.get(`${data.baseUrl}/items/${formattedDate}/exists`)
-            imageExists = response.data
+            const response = await fetch(`${data.baseUrl}/items/${formattedDate}/exists`)
+            imageExists = await response.json()
 
             let imagePath;
             if (imageExists) {

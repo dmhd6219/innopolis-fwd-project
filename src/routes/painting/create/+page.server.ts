@@ -1,5 +1,4 @@
 import {BASE_URL} from '$env/static/private';
-import axios from "axios";
 import type {Actions} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
 
@@ -14,7 +13,10 @@ export const actions = {
 
         const data = await request.formData()
 
-        const response = await axios.post(`${BASE_URL}/items/create?token=${token}`, data)
+        const response = await fetch(`${BASE_URL}/items/create?token=${token}`, {
+            method : "POST",
+            body : data
+        })
 
         if (response.status === 200) {
             throw redirect(303, `/painting/${data.get('date')}`);

@@ -1,5 +1,4 @@
 import {BASE_URL} from '$env/static/private';
-import axios from "axios";
 import type {Actions} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
 
@@ -25,7 +24,9 @@ export const actions = {
         const passwordAgain = data.get('password-again')
 
         if (password === passwordAgain) {
-            const response = await axios.post(`${BASE_URL}/register?email=${email}&password=${password}`);
+            const response = await fetch(`${BASE_URL}/register?email=${email}&password=${password}`, {
+                method : "POST"
+            });
             if (response.status === 200) {
                 throw redirect(303, '/login');
             }

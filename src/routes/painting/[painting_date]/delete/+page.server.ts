@@ -1,8 +1,8 @@
 import type {PageServerLoad} from "./$types";
-import { redirect} from "@sveltejs/kit";
+import {redirect} from "@sveltejs/kit";
 import type {Actions} from "@sveltejs/kit";
-import axios from "axios";
 import {BASE_URL} from "$env/static/private";
+
 export const load = (
     ({params, cookies}) => {
         if (!cookies.get('token')) {
@@ -10,7 +10,7 @@ export const load = (
             throw redirect(303, '/paintings');
         }
         console.log(params.painting_date)
-        return {success : true, formattedDate : params.painting_date}
+        return {success: true, formattedDate: params.painting_date}
     }
 ) satisfies PageServerLoad;
 
@@ -22,7 +22,9 @@ export const actions = {
             return {success: false}
         }
 
-        await axios.delete(`${BASE_URL}/items/${params.painting_date}/delete?token=${token}`)
+        await fetch(`${BASE_URL}/items/${params.painting_date}/delete?token=${token}`, {
+            method: "DELETE"
+        })
         throw redirect(303, '/paintings');
     },
 

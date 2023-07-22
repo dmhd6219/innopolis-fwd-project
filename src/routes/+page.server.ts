@@ -1,6 +1,5 @@
 import type {PageServerLoad} from "./$types";
 import {BASE_URL} from "$env/static/private";
-import axios from "axios";
 import {format} from 'date-fns';
 
 // getRandomDateInBetween('2021-01-01', '2021-01-30')
