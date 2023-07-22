@@ -1,6 +1,7 @@
 import {BASE_URL} from '$env/static/private';
 import axios from "axios";
 import type {Actions} from "@sveltejs/kit";
+import {redirect} from "@sveltejs/kit";
 
 
 export const actions = {
@@ -16,7 +17,7 @@ export const actions = {
         const response = await axios.post(`${BASE_URL}/items/${params.painting_date}/edit?token=${token}`, data)
 
         if (response.status === 200) {
-            return {success: true}
+            throw redirect(303, `/painting/${params.painting_date}`);
         }
 
         return {success: false}

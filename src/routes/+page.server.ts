@@ -1,7 +1,7 @@
 import type {PageServerLoad} from "./$types";
 import {BASE_URL} from "$env/static/private";
 import axios from "axios";
-import { format } from 'date-fns';
+import {format} from 'date-fns';
 
 // getRandomDateInBetween('2021-01-01', '2021-01-30')
 function getRandomDateInBetween(start: string, end: string) {
@@ -14,18 +14,16 @@ function getRandomDateInBetween(start: string, end: string) {
 export const load = (
     async () => {
         const date = getRandomDateInBetween('2006-03-01', (new Date()).toString())
-        let result = false;
 
-        while (!result) {
-            const formattedDate = format(date, 'yyyy-MM-dd');
+        const formattedDate = format(date, 'yyyy-MM-dd');
+        const response = await axios.get(`${BASE_URL}/items/${formattedDate}/exists`)
 
-            const response = await axios.get(`${BASE_URL}/items/${formattedDate}/exists`)
-
-            if (response.data === true) {
-                result = true;
-                return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate : formattedDate}
-            }
+        if (response.data){
+            return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate: formattedDate}
         }
+
+        return {url: `https://www.hiroshimatsumoto.com/2009paintings/works/dec032009.jpg`, formattedDate: formattedDate}
+
 
 
     }

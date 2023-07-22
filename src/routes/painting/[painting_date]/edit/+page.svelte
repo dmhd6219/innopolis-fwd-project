@@ -13,11 +13,13 @@
         desc: null
     };
 
+
+
 </script>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">
     <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
-        <p class="font-bold mt-4 mb-8 text-center">Adding new picture</p>
+        <p class="font-bold mt-4 mb-8 text-center">Editing a Painting</p>
 
         <form method="post" class="space-y-4" enctype="multipart/form-data">
             <div>
@@ -28,6 +30,7 @@
                             bind:value={painting.title}
                             class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
                             name="title"
+                            required
                     />
                 </label>
             </div>
@@ -54,6 +57,7 @@
                             class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
                             rows="2"
                             name="desc"
+                            required
                     ></textarea>
                 </label>
             </div>

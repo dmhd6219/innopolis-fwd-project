@@ -23,7 +23,7 @@ export const actions = {
         }
 
         await axios.delete(`${BASE_URL}/items/${params.painting_date}/delete?token=${token}`)
-        return {success: true}
+        throw redirect(303, '/paintings');
     },
 
 
