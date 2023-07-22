@@ -6,3 +6,5 @@ export const load = (
         return {baseUrl: BASE_URL}
     }
 ) satisfies PageServerLoad;
+
+export const ssr = true

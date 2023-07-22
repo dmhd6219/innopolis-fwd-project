@@ -23,3 +23,5 @@ export const load = (async ({params, cookies}) => {
         token : token
     }
 }) satisfies PageServerLoad;
+
+export const ssr = true

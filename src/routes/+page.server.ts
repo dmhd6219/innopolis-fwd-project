@@ -29,4 +29,4 @@ export const load = (
     }
 ) satisfies PageServerLoad;
 
-
+export const ssr = true

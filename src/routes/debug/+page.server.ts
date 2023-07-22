@@ -18,3 +18,4 @@ export const actions = {
 } satisfies Actions;
 
 
+export const ssr = true

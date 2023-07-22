@@ -1,4 +1,4 @@
-import type {LayoutServerLoad} from "./$types";
+import type {PageServerLoad} from "./$types";
 import {redirect} from "@sveltejs/kit";
 
 export const load = (
@@ -8,5 +8,6 @@ export const load = (
         }
         throw redirect(307, '/login');
     }
-) satisfies LayoutServerLoad;
+) satisfies PageServerLoad;
 
+export const ssr = true
