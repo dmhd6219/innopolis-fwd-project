@@ -36,8 +36,13 @@
             const isFuture = isAfter(date, currentDate);
             const dayOfWeek = format(date, 'EEEE');
 
+            let currentDay = date.getDate();
+            let currentMonth = getMonth(date) + 1;
+            let currentYear = getYear(date);
 
-            const formattedDate = format(data.date, 'yyyy-MM-dd')
+            const formattedDate = `${currentYear}-${currentMonth > 9 ? currentMonth : "0"
+                + currentMonth}-${currentDay > 9 ? currentDay : "0" + currentDay}`
+
 
             let imageExists = false;
             const response = await fetch(`${data.baseUrl}/items/${formattedDate}/exists`)
