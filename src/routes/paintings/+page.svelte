@@ -1,6 +1,7 @@
 <script lang="ts">
     import {onMount} from 'svelte';
     import {getMonth, getYear, startOfMonth, getDay, format, isAfter} from 'date-fns';
+    import {getImageUrlFromDate} from "$lib/getImageUrl";
 
     export let data;
 
@@ -44,13 +45,18 @@
                 + currentMonth}-${currentDay > 9 ? currentDay : "0" + currentDay}`
 
 
-            let imageExists = false;
-            const response = await fetch(`${data.baseUrl}/items/${formattedDate}/exists`)
-            imageExists = await response.json()
+            const response = await fetch(`${data.baseUrl}/items/${formattedDate}`)
+            const json = await response.json();
+
+            const imageExists = !!json;
 
             let imagePath;
             if (imageExists) {
                 imagePath = `${data.baseUrl}/items/${formattedDate}/photo`
+            }
+
+            if (imageExists && json.original){
+                imagePath = getImageUrlFromDate(date);
             }
 
             calendarDays.push({
@@ -156,7 +162,7 @@
                     </div>
                 {:else}
                     <a href="./painting/{formattedDate}" class="bg-white">
-                        <img src={imageUrl} alt={`Day ${date}`} class="w-10 h-10 md:w-24 md:h-24 mx-auto"/>
+                        <img src={`${imageUrl}?token=${formattedDate}`} alt={formattedDate} class="w-10 h-10 md:w-24 md:h-24 mx-auto"/>
                     </a>
                 {/if}
             {/each}

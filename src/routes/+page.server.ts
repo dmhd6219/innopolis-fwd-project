@@ -15,14 +15,24 @@ export const load = (
         const date = getRandomDateInBetween('2006-03-01', (new Date()).toString())
 
         const formattedDate = format(date, 'yyyy-MM-dd');
-        const response = await fetch(`${BASE_URL}/items/${formattedDate}/exists`)
+        const responseExist = await fetch(`${BASE_URL}/items/${formattedDate}/exists`)
 
-        if (await response.json()){
-            return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate: formattedDate}
+        if (!(await responseExist.json())) {
+            return {
+                url: `https://www.hiroshimatsumoto.com/2009paintings/works/dec032009.jpg`,
+                formattedDate: formattedDate
+            }
+        }
+        const response = await fetch(`${BASE_URL}/items/${formattedDate}`);
+        const json = await response.json();
+        if (!json || !json.original) {
+            return {
+                url: `https://www.hiroshimatsumoto.com/2009paintings/works/dec032009.jpg`,
+                formattedDate: formattedDate
+            }
         }
 
-        return {url: `https://www.hiroshimatsumoto.com/2009paintings/works/dec032009.jpg`, formattedDate: formattedDate}
-
+        return {url: `${BASE_URL}/items/${formattedDate}/photo`, formattedDate: formattedDate}
 
 
     }

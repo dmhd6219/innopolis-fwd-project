@@ -1,13 +1,15 @@
 import {redirect} from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
 import {BASE_URL} from "$env/static/private";
+import {getImageUrlFromDate} from "$lib/getImageUrl";
 
 export const load = (async ({params, cookies}) => {
     console.log(params.painting_date)
 
-    const response = await fetch(`${BASE_URL}/items/${params.painting_date}/exists`);
+    const response = await fetch(`${BASE_URL}/items/${params.painting_date}`);
+    const json = await response.json();
 
-    if (await response.json() === "false") {
+    if (!json) {
         throw redirect(307, '/paintings');
     }
 
@@ -17,9 +19,10 @@ export const load = (async ({params, cookies}) => {
 
     return {
         date: new Date(params.painting_date),
-        imageUrl: `${BASE_URL}/items/${params.painting_date}/photo`,
+        imageUrl: !json.original ? `${BASE_URL}/items/${params.painting_date}/photo` : getImageUrlFromDate(new Date(params.painting_date)),
         logged : logged,
-        token : token
+        token : token,
+        original : json.original
     }
 }) satisfies PageServerLoad;
 

@@ -25,7 +25,7 @@
             <button class="bg-black text-white py-2 px-4 w-full mt-4 mb-8">Buy on Etsy Shop</button>
         </a>
         <!-- FEATURE: For admin -->
-        {#if data.logged}
+        {#if data.logged && !data.original}
             <div class="flex justify-between">
                 <a class="bg-sky-400 text-white py-2 px-4 mr-2 w-1/2" href="/painting/{format(data.date, 'yyyy-MM-dd')}/edit">Edit</a>
                 <a class="bg-red-400 text-white py-2 px-4 ml-2 w-1/2" href="/painting/{format(data.date, 'yyyy-MM-dd')}/delete">Delete</a>
