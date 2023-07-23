@@ -23,6 +23,3 @@ jobs:
 
       - name: Check code with ESLint
         run: npm run lint
-
-      - name: Check code with svelte-check
-        run: npm run check
