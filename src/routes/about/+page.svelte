@@ -4,10 +4,10 @@
 	import EtsyShop from '$lib/images/EtsyShop.png';
 </script>
 
-<!-- как сделать свой title для этой странички? -->
 <svelte:head>
-	<title>AAAAAAA</title>
+	<title>About Hiroshi Matsumoto</title>
 </svelte:head>
+
 
 <section>
 	<div class="flex flex-col items-center mb-8 mt-16">

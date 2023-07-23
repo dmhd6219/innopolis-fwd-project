@@ -2,8 +2,11 @@
     import {format} from 'date-fns';
 
     export let data;
-
 </script>
+
+<svelte:head>
+    <title>Painting at Hiroshi Matsumoto site</title>
+</svelte:head>
 
 <section class="flex flex-col md:flex-row">
     <div class="md:w-1/2 bg-base-200 flex flex-col items-center justify-center pb-24 pt-24">

@@ -17,6 +17,10 @@
 
 </script>
 
+<svelte:head>
+	<title>Create a Painting at Hiroshi Matsumoto site</title>
+</svelte:head>
+
 <section class="flex flex-col items-center justify-center h-screen mx-8">
 	<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
 		<p class="font-bold mt-4 mb-8 text-center">Adding new picture</p>

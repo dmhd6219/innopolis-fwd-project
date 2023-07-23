@@ -14,6 +14,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>Contact us</title>
+</svelte:head>
+
 <section class="flex flex-col items-center justify-center h-screen mx-8">
     <div class="max-w-xl w-full p-6 bg-white rounded-lg shadow-lg border border-gray-300">
         <p class="mt-4 text-center">If you have any questions, please feel free to send a message.</p>

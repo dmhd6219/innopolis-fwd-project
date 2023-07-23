@@ -110,6 +110,10 @@
     onMount(updateCalendar);
 </script>
 
+<svelte:head>
+    <title>Paintings at Hiroshi Matsumoto site</title>
+</svelte:head>
+
 <section class="flex flex-col items-center">
     <h1 class="text-2xl font-bold mt-12 mb-8">9 x 9 Paintings</h1>
 
