@@ -6,7 +6,7 @@
         photoFile : File | null
     }
     export let data;
-    export let tempData : Painting = {title : data.title, description : data.description, photoFile: null}
+    export let tempData : Painting = {title : data.title, description : data.desc, photoFile: null}
 </script>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

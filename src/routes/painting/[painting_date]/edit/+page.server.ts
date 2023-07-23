@@ -16,7 +16,7 @@ export const load = (
         if (!json || !(response.status === 200)){
             return {error : `Error on server side, ${response.status}`}
         }
-
+        console.log(json)
         return {success: true, formattedDate: params.painting_date, title: json.title, desc: json.description}
     }
 ) satisfies PageServerLoad;
