@@ -18,13 +18,15 @@ export const load = (async ({params, cookies}) => {
     const logged = !!token;
 
     return {
+        formattedDate : params.painting_date,
         date: new Date(params.painting_date),
         imageUrl: !json.original ? `${BASE_URL}/items/${params.painting_date}/photo` : getImageUrlFromDate(new Date(params.painting_date)),
         logged : logged,
         token : token,
         original : json.original,
         title : json.title,
-        description : json.description
+        description : json.description,
+        baseUrl : BASE_URL
     }
 }) satisfies PageServerLoad;
 

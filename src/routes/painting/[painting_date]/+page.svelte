@@ -6,6 +6,11 @@
 
 <svelte:head>
     <title>Painting at Hiroshi Matsumoto site</title>
+
+    <meta property="og:title" content={data.title} />
+    <meta property="og:type" content="painting" />
+    <meta property="og:url" content="{data.baseUrl}/painting/{data.formattedDate}" />
+    <meta property="og:image" content={data.imageUrl} />
 </svelte:head>
 
 <section class="flex flex-col md:flex-row">
