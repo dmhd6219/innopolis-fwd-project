@@ -3,10 +3,10 @@ name: Lint Check
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
-  build-and-deploy:
+  check-formatting:
     name: Lint Check
     runs-on: ubuntu-latest
     steps:
