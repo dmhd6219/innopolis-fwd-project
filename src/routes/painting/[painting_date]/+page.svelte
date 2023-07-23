@@ -19,6 +19,12 @@
             Collection: 9 by 9 paintings<br/>
             Materials: Oil on canvas<br/>
             Size: 9 cm by 9 cm
+            {#if data.title}
+                <br/>Title : {data.title}
+            {/if}
+            {#if data.description}
+                <br/>Description : {data.description}
+            {/if}
         </p>
         <hr class="my-4"/>
         <a href="https://www.etsy.com/shop/hiroshimatsumoto" target="_blank">
@@ -27,8 +33,10 @@
         <!-- FEATURE: For admin -->
         {#if data.logged && !data.original}
             <div class="flex justify-between">
-                <a class="bg-sky-400 text-white py-2 px-4 mr-2 w-1/2" href="/painting/{format(data.date, 'yyyy-MM-dd')}/edit">Edit</a>
-                <a class="bg-red-400 text-white py-2 px-4 ml-2 w-1/2" href="/painting/{format(data.date, 'yyyy-MM-dd')}/delete">Delete</a>
+                <a class="bg-sky-400 text-white py-2 px-4 mr-2 w-1/2"
+                   href="/painting/{format(data.date, 'yyyy-MM-dd')}/edit">Edit</a>
+                <a class="bg-red-400 text-white py-2 px-4 ml-2 w-1/2"
+                   href="/painting/{format(data.date, 'yyyy-MM-dd')}/delete">Delete</a>
             </div>
         {/if}
     </div>
