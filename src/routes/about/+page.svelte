@@ -5,6 +5,9 @@
 </script>
 
 <!-- как сделать свой title для этой странички? -->
+<svelte:head>
+	<title>AAAAAAA</title>
+</svelte:head>
 
 <section>
 	<div class="flex flex-col items-center mb-8 mt-16">

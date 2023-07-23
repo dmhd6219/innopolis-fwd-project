@@ -1,7 +1,25 @@
 import {BASE_URL} from '$env/static/private';
 import type {Actions} from "@sveltejs/kit";
 import {redirect} from "@sveltejs/kit";
+import type {PageServerLoad} from "./$types";
 
+export const load = (
+    async ({params, cookies}) => {
+        if (!cookies.get('token')) {
+            console.log('you have no cookies')
+            throw redirect(303, '/paintings');
+        }
+
+        const response = await fetch(`${BASE_URL}/items/${params.painting_date}`)
+        const json = await response.json();
+
+        if (!json || !(response.status === 200)){
+            return {error : `Error on server side, ${response.status}`}
+        }
+
+        return {success: true, formattedDate: params.painting_date, title: json.title, desc: json.description}
+    }
+) satisfies PageServerLoad;
 
 export const actions = {
     default: async ({params, cookies, request}) => {

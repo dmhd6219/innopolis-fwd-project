@@ -1,20 +1,12 @@
 <script lang="ts">
-    interface Painting {
-        date: Date;
-        photoFile: File | null;
-        title: string | null,
-        desc: string | null
+
+    interface Painting{
+        title : string | null,
+        description : string | null,
+        photoFile : File | null
     }
-
-    let painting: Painting = {
-        date: new Date(),
-        photoFile: null,
-        title: null,
-        desc: null
-    };
-
     export let data;
-
+    export let tempData : Painting = {title : data.title, description : data.description, photoFile: null}
 </script>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">
@@ -30,7 +22,7 @@
                     Title:
                     <input
                             type="text"
-                            bind:value={painting.title}
+                            bind:value={tempData.title}
                             class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
                             name="title"
                             required
@@ -44,7 +36,7 @@
                     <input
                             type="file"
                             accept="image/png, image/jpeg"
-                            bind:value={painting.photoFile}
+                            bind:value={tempData.photoFile}
                             class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
                             required
                             name="file"
@@ -56,7 +48,7 @@
                 <label class="block text-sm font-medium">
                     Description:
                     <textarea
-                            bind:value={painting.desc}
+                            bind:value={tempData.description}
                             class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
                             rows="2"
                             name="desc"
