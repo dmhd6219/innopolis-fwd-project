@@ -2,19 +2,18 @@
 	interface Painting {
 		date: Date;
 		photoFile: File | null;
-		title : string | null,
-		desc : string | null
+		title: string | null;
+		desc: string | null;
 	}
 
 	let painting: Painting = {
 		date: new Date(),
 		photoFile: null,
-		title : null,
-		desc : null
+		title: null,
+		desc: null
 	};
 
 	export let data;
-
 </script>
 
 <svelte:head>
@@ -25,7 +24,7 @@
 	<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
 		<p class="font-bold mt-4 mb-8 text-center">Adding new picture</p>
 
-		{#if data}
+		{#if data.error}
 			<p style="color:red;">{data.error}</p>
 		{/if}
 		<form method="post" class="space-y-4" enctype="multipart/form-data">
@@ -33,11 +32,11 @@
 				<label class="block text-sm font-medium">
 					Title:
 					<input
-							type="text"
-							bind:value={painting.title}
-							class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-							name="title"
-							required
+						type="text"
+						bind:value={painting.title}
+						class="form-input mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
+						name="title"
+						required
 					/>
 				</label>
 			</div>
@@ -73,12 +72,12 @@
 				<label class="block text-sm font-medium">
 					Description:
 					<textarea
-							bind:value={painting.desc}
-							class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
-							rows="2"
-							required
-							name="desc"
-					></textarea>
+						bind:value={painting.desc}
+						class="form-textarea mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"
+						rows="2"
+						required
+						name="desc"
+					/>
 				</label>
 			</div>
 

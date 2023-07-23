@@ -1,25 +1,20 @@
 {
-  "root": true,
-  "editorconfig_version": 2,
-  "files": [
-    "**/*.svelte",
-    "**/*.ts",
-    "**/*.css",
-    "**/*.daisyui.css"
-  ],
-  "settings": {
-    "indent_style": "space",
-    "indent_size": 4,
-    "end_of_line": "lf",
-    "charset": "utf-8",
-    "trim_trailing_whitespace": true,
-    "insert_final_newline": true,
-    "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true,
-    "prettier.config": {
-      "singleQuote": true,
-      "trailingComma": "all",
-      "arrowParens": "avoid"
-    }
-  }
+	"root": true,
+	"editorconfig_version": 2,
+	"files": ["**/*.svelte", "**/*.ts", "**/*.css", "**/*.daisyui.css"],
+	"settings": {
+		"indent_style": "space",
+		"indent_size": 4,
+		"end_of_line": "lf",
+		"charset": "utf-8",
+		"trim_trailing_whitespace": true,
+		"insert_final_newline": true,
+		"editor.formatOnSave": true,
+		"eslint.autoFixOnSave": true,
+		"prettier.config": {
+			"singleQuote": true,
+			"trailingComma": "all",
+			"arrowParens": "avoid"
+		}
+	}
 }

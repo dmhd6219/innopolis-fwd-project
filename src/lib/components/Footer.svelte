@@ -3,7 +3,7 @@
 		<p>Copyright &copy 1999-2023 Hiroshi Matsumoto. All Rights Reserved.</p>
 	</div>
 	<div class="grid grid-flow-col gap-4">
-		<a href="https://www.etsy.com/shop/hiroshimatsumoto" aria-label="Etsy" target="_blank" >
+		<a href="https://www.etsy.com/shop/hiroshimatsumoto" aria-label="Etsy" target="_blank">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				x="0px"
