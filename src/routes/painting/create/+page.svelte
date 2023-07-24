@@ -18,7 +18,10 @@
 
 <svelte:head>
 	<title>Create a Painting at Hiroshi Matsumoto site</title>
-	<meta name="description" content="Add new painting in Hiroshi Matsumoto's website effortlessly. Make sure you are signed in.">
+	<meta
+		name="description"
+		content="Add new painting in Hiroshi Matsumoto's website effortlessly. Make sure you are signed in."
+	/>
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

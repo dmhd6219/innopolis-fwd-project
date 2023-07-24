@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>Account at Hiroshi Matsumoto site</title>
-	<meta name="description" content="Access new functions by your profile page">
+	<meta name="description" content="Access new functions by your profile page" />
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

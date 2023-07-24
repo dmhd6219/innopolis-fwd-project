@@ -10,7 +10,10 @@
 
 <svelte:head>
 	<title>Edit a Painting at Hiroshi Matsumoto site</title>
-	<meta name="description" content="Update a painting from Hiroshi Matsumoto's website effortlessly. Make sure you are signed in.">
+	<meta
+		name="description"
+		content="Update a painting from Hiroshi Matsumoto's website effortlessly. Make sure you are signed in."
+	/>
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

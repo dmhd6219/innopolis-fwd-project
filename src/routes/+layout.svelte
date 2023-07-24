@@ -1,14 +1,12 @@
 <script>
-    import '../app.postcss';
-    import Header from '$lib/components/Header.svelte';
-    import Footer from '$lib/components/Footer.svelte';
-    import '../app.css';
+	import '../app.postcss';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import '../app.css';
 </script>
 
-
-<Header/>
+<Header />
 <main>
-    <slot/>
+	<slot />
 </main>
-<Footer/>
-
+<Footer />
