@@ -9,7 +9,7 @@ export const load = (({ cookies }) => {
 		console.log('you have cookies');
 		throw redirect(303, '/');
 	}
-	return { error: `You are not authorized` };
+	return { error: undefined };
 }) satisfies PageServerLoad;
 
 export const actions = {

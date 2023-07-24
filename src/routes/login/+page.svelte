@@ -17,7 +17,7 @@
 	<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-300">
 		<p class="font-bold mt-4 mb-8 text-center">Login</p>
 
-		{#if data}
+		{#if data.error}
 			<p style="color:red;">{data.error}</p>
 		{/if}
 
