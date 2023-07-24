@@ -5,7 +5,6 @@
 	let message = '';
 
 	function handleSubmit() {
-		// TODO: Handle form submission here
 		console.log('Form submitted');
 		name = '';
 		email = '';
@@ -16,6 +15,7 @@
 
 <svelte:head>
 	<title>Contact us</title>
+	<meta name="description" content="Send a message directly to Hiroshi, expressing your admiration for his mesmerizing paintings. Immerse yourself in the vibrant world of abstract art and establish a connection with this distinguished artist. Share your thoughts, inquiries, or collaboration proposals.">
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

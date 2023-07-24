@@ -114,6 +114,7 @@
 
 <svelte:head>
 	<title>Paintings at Hiroshi Matsumoto site</title>
+	<meta name="description" content="Incredible 9 by 9 oil on canvas paintings by Hiroshi Matsumoto in calendar view. New day - New painting">
 </svelte:head>
 
 <section class="flex flex-col items-center">

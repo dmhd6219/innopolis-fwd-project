@@ -11,6 +11,7 @@
 
 <svelte:head>
 	<title>Login to Hiroshi Matsumoto site</title>
+	<meta name="description" content="Login to Hiroshi Matsumoto's website: Access your account and enjoy beautiful paintings. Enter your email and password to securely log in.">
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

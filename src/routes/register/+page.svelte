@@ -12,6 +12,7 @@
 
 <svelte:head>
 	<title>Register at Hiroshi Matsumoto site</title>
+	<meta name="description" content="Discover Hiroshi Matsumoto's website and create your account with ease. Sign up today and join a thriving community led by Hiroshi Matsumoto himself. ">
 </svelte:head>
 
 <section class="flex flex-col items-center justify-center h-screen mx-8">

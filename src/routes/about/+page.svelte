@@ -6,6 +6,7 @@
 
 <svelte:head>
 	<title>About Hiroshi Matsumoto</title>
+	<meta name="description" content="Hiroshi Matsumoto - Abstract Oil Painter, Original Oil Paintings of Abstract Artist's Hiroshi Matsumoto,  9x9 painting, abstract painting, landscape painting, still life painting and other subjects.">
 </svelte:head>
 
 <section>

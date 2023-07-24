@@ -5,10 +5,10 @@
     import '../app.css';
 </script>
 
-<body>
+
 <Header/>
 <main>
     <slot/>
 </main>
 <Footer/>
-</body>
+

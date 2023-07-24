@@ -6,6 +6,7 @@
 
 <svelte:head>
 	<title>Painting at Hiroshi Matsumoto site</title>
+	<meta name="description" content="Incredible 9 by 9 oil on canvas painting by Hiroshi Matsumoto. New day - New painting">
 
 	<meta property="og:title" content={data.title} />
 	<meta property="og:type" content="painting" />
