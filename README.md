@@ -1,7 +1,7 @@
 # Hiroshi Matsumoto Site Remake Frontend
 ![License](https://img.shields.io/github/license/dmhd6219/innopolis-fwd-project)
-[![Svelte](https://img.shields.io/badge/Svelte-3.0-orange.svg)](https://svelte.dev/)
-[![DaisyUI](https://img.shields.io/badge/DaisyUI-v1.4.2-green.svg)](https://daisyui.com/)
+[![Svelte](https://img.shields.io/badge/Svelte-orange.svg)](https://svelte.dev/)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-green.svg)](https://daisyui.com/)
 
 You can find Backend [here](https://github.com/dmhd6219/innopolis-fwd-project-backend).
 Was created as Final Project for FWD (FrontEnd Web Development) course at Innopolis University.
