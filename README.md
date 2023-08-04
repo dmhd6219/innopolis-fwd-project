@@ -1,4 +1,5 @@
 # Hiroshi Matsumoto Site Remake Frontend
+
 ![License](https://img.shields.io/github/license/dmhd6219/innopolis-fwd-project)
 [![Svelte](https://img.shields.io/badge/Svelte-orange.svg)](https://svelte.dev/)
 [![DaisyUI](https://img.shields.io/badge/DaisyUI-green.svg)](https://daisyui.com/)
@@ -52,10 +53,10 @@ npm run dev
 
 Visit `http://localhost:5173` in your browser to see the website in action. The development server will automatically reload the page whenever you make changes to the source code.
 
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Screenshots
+
 ![Screenshot of Website](/screenshots/Screenshot_1.png)
