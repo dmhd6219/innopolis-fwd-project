@@ -3,6 +3,7 @@
 ![License](https://img.shields.io/github/license/dmhd6219/innopolis-fwd-project)
 [![Svelte](https://img.shields.io/badge/Svelte-orange.svg)](https://svelte.dev/)
 [![DaisyUI](https://img.shields.io/badge/DaisyUI-green.svg)](https://daisyui.com/)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 
 You can find Backend [here](https://github.com/dmhd6219/innopolis-fwd-project-backend).
 Was created as Final Project for FWD (FrontEnd Web Development) course at Innopolis University.
